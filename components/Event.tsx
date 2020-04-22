@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View} from "react-native";
 
-interface EventProps {
+export interface EventProps {
   name: string;
   description: string;
   starts_at: string;

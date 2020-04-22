@@ -13,6 +13,7 @@ describe('Event', () => {
 
   it('renders', () => {
     const {getByText} = render(<Event name={data.name} description={data.description} starts_at={data.starts_at} attendees_count={data.attendees_count} />);
+
     expect(getByText(data.name)).toBeDefined();
     expect(getByText(sanitize(data.description))).toBeDefined();
     expect(getByText(data.starts_at)).toBeDefined();

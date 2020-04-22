@@ -1,3 +1,5 @@
+import Event from './Event';
+
 class Service {
   private static endpoint(url: string): string {
     const base_url = 'https://localhost:3000';
@@ -6,7 +8,8 @@ class Service {
 
   async list() {
     const response = await fetch(Service.endpoint('events'));
-    return await response.json();
+    const data = await response.json();
+    return data.map(Event.decode);
   }
 }
 
