@@ -4,6 +4,7 @@ import {FlatList, ListRenderItem, View} from "react-native";
 import Presenter from './Presenter';
 
 import EventComponent from '../../components/Event';
+import TitleComponent from "../../components/Title";
 
 interface ScreenProps {
   events: Presenter[];
@@ -16,6 +17,7 @@ const Screen: React.FC<ScreenProps> = (props: ScreenProps) => {
 
   return (
     <View>
+      <TitleComponent text="KWJavaScript" />
       <FlatList data={props.events} keyExtractor={(item: Presenter, index: number) => `event-${index}`} renderItem={renderEventComponent} />
     </View>
   );
