@@ -1,9 +1,10 @@
+const services = require('../../config/services.json');
+
 import Event from './Event';
 
 class Service {
   private static endpoint(url: string): string {
-    const base_url = 'https://localhost:3000';
-    return `${base_url}/${url}`
+    return `${services.host}/${url}`
   }
 
   async list(): Promise<Event[]> {
