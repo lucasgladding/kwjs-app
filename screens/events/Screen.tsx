@@ -1,24 +1,40 @@
 import React from 'react';
-import {FlatList, ListRenderItem, View} from "react-native";
+import {FlatList, ListRenderItem, StyleSheet, View} from "react-native";
 
 import Presenter from './Presenter';
 
-import EventComponent from '../../components/Event';
-import TitleComponent from "../../components/Title";
+import Event from '../../components/Event';
+import Separator from "../../components/Separator";
+import Title from "../../components/Title";
 
 interface ScreenProps {
   events: Presenter[];
 }
 
+const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+  },
+  list: {
+    flex: 1,
+  },
+});
+
 const Screen: React.FC<ScreenProps> = (props: ScreenProps) => {
-  const renderEventComponent: ListRenderItem<Presenter> = ({item, index}) => {
-    return <EventComponent name={item.name} date={item.date} description={item.description} rsvps={item.rsvps} />;
+  const renderEvent: ListRenderItem<Presenter> = ({item}) => {
+    return <Event name={item.name} date={item.date} rsvps={item.rsvps} />;
   };
 
   return (
-    <View>
-      <TitleComponent text="KWJavaScript" />
-      <FlatList data={props.events} keyExtractor={(item: Presenter, index: number) => `event-${index}`} renderItem={renderEventComponent} />
+    <View style={styles.container}>
+      <Title text="KWJavaScript" />
+      <FlatList
+        data={props.events}
+        ItemSeparatorComponent={Separator}
+        keyExtractor={(item: Presenter, index: number) => `event-${index}`}
+        renderItem={renderEvent}
+        style={styles.list}
+      />
     </View>
   );
 };

@@ -9,8 +9,6 @@ export interface EventProps {
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomColor: '#CCC',
-    borderBottomWidth: 0.5,
     padding: 20,
   },
   name: {
