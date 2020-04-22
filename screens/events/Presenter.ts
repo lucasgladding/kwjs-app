@@ -7,15 +7,15 @@ class Presenter {
     return this.event.name;
   }
 
+  get date(): string {
+    return this.event.starts_at.toDateString();
+  }
+
   get description(): string {
     return this.event.description;
   }
 
-  get starts_at(): string {
-    return this.event.starts_at.toDateString();
-  }
-
-  get attendees_count(): string {
+  get rsvps(): string {
     return this.event.attendees_count + ' attendees';
   }
 }

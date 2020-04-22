@@ -14,8 +14,8 @@ describe('events/Presenter', () => {
     const presenter = new Presenter(event);
 
     expect(presenter.name).toEqual(event.name);
+    expect(presenter.date).toEqual(event.starts_at.toDateString());
     expect(presenter.description).toEqual(event.description);
-    expect(presenter.starts_at).toEqual(event.starts_at.toDateString());
-    expect(presenter.attendees_count).toEqual(`${event.attendees_count} attendees`);
+    expect(presenter.rsvps).toEqual(`${event.attendees_count} attendees`);
   });
 });
