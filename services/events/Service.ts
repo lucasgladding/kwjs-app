@@ -6,7 +6,7 @@ class Service {
     return `${base_url}/${url}`
   }
 
-  async list() {
+  async list(): Promise<Event[]> {
     const response = await fetch(Service.endpoint('events'));
     const data = await response.json();
     return data.map(Event.decode);

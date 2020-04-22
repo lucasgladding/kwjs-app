@@ -13,7 +13,7 @@ const Container: React.FC = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const events = (await service.list()).map(Presenter);
+        const events = (await service.list()).map(event => new Presenter(event));
         setEvents(events);
       } catch (error) {
         console.log('Error loading events.', error);
